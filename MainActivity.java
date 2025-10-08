@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case 3:
-                Potegowanie(liczba1,liczba2);
+                wyniki.add(String.valueOf(Potegowanie(liczba1,liczba2)));
+
                 break;
             default:
                 wyniki.add("błąd wyboru");
@@ -93,9 +94,17 @@ public class MainActivity extends AppCompatActivity {
         wyswietl();
     }
 
-    private void Potegowanie(int a, int b)
+    private int Potegowanie(int a, int b)
     {
-
+        if(b==0)
+        {
+            return 1;
+        }
+        if (b%2==1)
+        {
+            return a * (int)(Math.pow(Potegowanie(a,(b-1)/2),2));
+        }
+        return (int)Math.pow(Potegowanie(a,b/2),2);
     }
 
     private int NWW(int a, int b)
